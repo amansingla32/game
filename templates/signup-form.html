@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Welcome New user!</title>
+	</head>
+	<script>
+		function getfocus()
+		{
+			document.getElementById("username").focus();
+		}
+	</script>
+	<Link href="static/main.css" title="compact" rel="stylesheet" type="text/css">
+	<style type="text/css">
+	
+		body {
+		}
+		.label {
+			display: block;
+			font-size: 20px;
+			font-type:bold;
+			margin: 8px 0px 0px 0px;
+		}
+		
+		.error{
+			margin: 8px 0px 0px 3px;
+		}
+		
+		input[type=text], input[type=password] {
+			margin: 8px 0px 0px 15px;
+		}
+		
+		input[type=submit] {
+			margin: 0px 0px 0px 240px;
+		}
+		
+		
+		form{
+			float:center;
+		}
+		
+    </style>
+	
+  <body OnLoad="getfocus()">
+	<div id="topbar">
+		<h1>Signup</h1>
+		
+		<div style="float:left">
+			Signup to play this awesome game online. You will love it!.
+		</div>
+
+		<div style="float:right">
+			Already Registered? <a class="moving" href="../signin" color="blue"> Sign-in</a>
+		</div>
+		<br>
+		<hr>
+	</div>
+	
+				<form method="post">
+					<br><br><br><br><br>
+					<table><tr><td><div style="width:60px"><div></td>
+					<td>
+					<label>
+						<div class="label">Username</div>
+						<input type="text" id="username" class = "moving" name="username" value="{{username}}">
+						<div class="error">{{error_username}}</div>
+					</label>
+					
+					<label>
+						<div class="label">Full Name</div>
+						<input type="text" id="fullname" class = "moving" name="fullname" value="{{fullname}}">
+						<div class="error">{{error_fullname}}</div>
+					</label>
+
+					<label>
+						<div class="label">Password</div>
+						<input type="password" class = "moving" name="password" value="">
+						<div class="error">{{error_password}}</div>
+					</label>
+
+					<label>
+						<div class="label">Verify Password</div>
+						<input type="password" class = "moving" name="verify" value="">
+						<div class="error">{{error_verify}}</div>
+					</label>
+
+					<label>
+						<div class="label">Email address</div>
+						<input type="text" class = "moving" name="email" value="{{email}}">
+						<div class="error">{{error_email}}</div>
+					</label>
+					</td>
+					<td><div style="width:60px"><div></td></tr></table>
+					<br>
+					<input type="submit" value="Submit" class="moving">
+					<br><br><br><br><br><br><br>
+				</form>
+  </body>
+</html>

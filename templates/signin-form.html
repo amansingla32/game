@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Welcome User!</title>
+	</head>
+	<script>
+		function getfocus()
+		{
+			document.getElementById("username").focus();
+		}
+	</script>
+	<Link href="static/main.css" title="compact" rel="stylesheet" type="text/css">
+	
+  <body>
+	<div>
+		<h1>Sign In</h1>
+		<div style="float:left">
+			Sign-in and enjoy this awesome gmae online. You will love it!.
+		</div>
+
+		<div style="float:right">
+			New here? <a class="moving" href="../signup" color="blue"> Register here</a>
+		</div>
+	</div>
+	<br>
+	<hr><br><br>
+    <form method="post">
+        <label>
+            <div class="label">Username</div>
+            <input type="text" class="moving" name="username" value="{{username}}">
+          <div class="error">{{error_username}}</div>
+        </label>
+
+        <label>
+            <div class="label">Password</div>
+            <input type="password" class="moving" name="password" value="">
+          <div class="error">{{error_password}}</div>
+        </label>
+		
+		<br><br>
+		<input type="submit" class="moving" value="Sign in">
+    </form>
+  </body>
+
+</html>

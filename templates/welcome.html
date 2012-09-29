@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Welcome, {{user.fullname}}</title>
+		<meta http-equiv="Content-Language" content="en-us">
+		<META NAME="description" CONTENT="Word Scrabble">
+		<META NAME="keywords" CONTENT="Scrabble Online Friends Challenge Game Word">
+		<META Name="Developer" Content="Aman Singla/Abhishek Modi">
+		<meta name="document-rating" content="Safe for Kids">
+		<meta name="document-distribution" content="Global">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<script LANGUAGE="JavaScript" src="static/common.js"></script>
+		<link href="static/main.css" title="compact" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				var watermark = 'Find your friends';
+				$('#searchbox').blur(function()
+				{
+					if ($(this).val().length == 0)
+						$(this).val(watermark).addClass('watermark');
+				}).focus(function()
+				{
+					if ($(this).val() == watermark)
+							$(this).val('').removeClass('watermark');
+				}).val(watermark).addClass('watermark');
+			});
+		</script>
+		
+		<script type="text/javascript">
+			function refresh_list()
+			{
+				//alert('a');
+				var url = '/buddy_list';
+				if($('#searchbox').hasClass('watermark')){}
+				else
+				{
+					url = url + '?search=' + $('#searchbox').val();
+				}
+				//alert(url);
+				$('#refresh_list').load(url);
+			};
+			$(document).ready(function()
+			{
+				$('#refresh').click(refresh_list);
+				$('#searchbox').keyup(refresh_list);
+				refresh_list();
+			});
+		</script>
+	</head>
+	
+	
+	<body>
+		<div style="">
+			<br>
+			<div id="modal-dialog-mask"></div>
+			<div id="topbar">
+				<div style="float:left;font-size:25px">
+					Welcome, {{user.fullname}}!
+				</div>
+				<br>
+				<div style="float:right">
+					<a class = "moving" href="../signout">Sign out</a>
+				</div>
+				<br>
+				<hr>
+			</div>
+			
+			<div class="clear">
+				Play <b><em>Word Scrabble</em></b> with your friends here! 
+				<br><br><br>
+			</div>
+			
+			Find and Choose your opponent <br><br>
+			<input type="text" id="searchbox" class="normaltextbox">
+			<img id="refresh" src="static/refresh.gif">
+			<br><br>
+			<div class="clear"/>
+			<div id="refresh_list">
+				<!--<ul id="online_list">
+					{% for user in online_users %}
+					<li id="{{ user.username }}">
+						<img src={% if user.state == 0 %}"static/available.jpg" {% else %} "static/busy.jpg" {% endif %}>
+						<div class="user_name"> {{ user.parent().fullname }} </div>
+					</li>
+					{% endfor %}
+				</ul>-->
+			</div>
+		</div> <!-- Body wrapper -->
+	</body>
+</html>
